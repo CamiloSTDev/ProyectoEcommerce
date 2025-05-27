@@ -38,22 +38,22 @@ ProyectoEcommerce/
 ## ⚙️ Cómo ejecutar el proyecto
 
 1. **Clona este repositorio:**
-   
+   ```
    git clone https://github.com/CamiloSTDev/ProyectoEcommerce.git
    cd ProyectoEcommerce
-   
+   ```
 
 2. **Restaura los paquetes y compila:**
-   
+   ```
    dotnet restore
    dotnet build
-   
+   ```
 
 3. **Ejecuta la API:**
-   
+   ```
    cd src/Ecommerce.API
    dotnet run
-   
+   ```
 
 ## 🧱 Funcionalidades planeadas
 
