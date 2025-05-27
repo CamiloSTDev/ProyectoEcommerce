@@ -27,13 +27,14 @@ bld/
 project.lock.json
 project.fragment.lock.json
 artifacts/
+*.deps.json
+*.runtimeconfig.json
 
 # ASP.NET Scaffolding
 ScaffoldingReadMe.txt
 
 # NuGet Packages
 *.nupkg
-# NuGet Symbol Packages
 *.snupkg
 
 # Others
@@ -52,3 +53,26 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+
+# VSCode
+.vscode/
+
+# Rider
+.idea/
+
+# User secrets (local development)
+secrets.json
+
+# dotnet user secrets folder (Linux/macOS)
+~/.microsoft/usersecrets/
+
+# appsettings - optionally ignore development settings only
+appsettings.Development.json
+# You can uncomment the line below to ignore ALL appsettings
+# appsettings*.json
+
+# Env files
+.env
+.env.*.local
+*.env.local
+*.env.development
