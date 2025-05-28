@@ -18,7 +18,8 @@ public class CreateProductHandler
         var product = new Product
         {
             Name = dto.Name,
-            Price = dto.Price
+            Desc = dto.Desc,
+            Price = dto.Price,
         };
 
         return await _repository.CreateAsync(product);
