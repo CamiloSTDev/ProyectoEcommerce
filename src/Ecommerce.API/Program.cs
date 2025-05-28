@@ -3,12 +3,17 @@ using Application.UseCases;
 using Infrastructure.Data;
 using Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
+using DotNetEnv;
 
 var builder = WebApplication.CreateBuilder(args);
 
+Env.Load();
+
+var connectionString = Environment.GetEnvironmentVariable("DB_CONNECTION_STRING");
+
 // DbContext
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(connectionString));
 
 // Repositorio e inyección de casos de uso
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
