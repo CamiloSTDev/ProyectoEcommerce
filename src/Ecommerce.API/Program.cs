@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 Env.Load();
 
-var connectionString = Environment.GetEnvironmentVariable("DB_CONNECTION_STRING");
+var connectionString = Environment.GetEnvironmentVariable("DB_CONNECTION_STRING=Server=DESKTOP-VC036C0\\SQLEXPRESS;Database=Ecommerce;Integrated security=true;TrustServerCertificate=True;");
 
 // DbContext
 builder.Services.AddDbContext<AppDbContext>(options =>
@@ -48,7 +48,7 @@ var summaries = new[]
 
 app.MapGet("/weatherforecast", () =>
 {
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
+    var forecast = Enumerable.Range(1, 5).Select(index =>
         new WeatherForecast
         (
             DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
