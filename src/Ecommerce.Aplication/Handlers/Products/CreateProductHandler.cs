@@ -1,8 +1,8 @@
 using Application.DTOs;
-using Domain.Interfaces;
+using Application.Interfaces;
 using Domain.Entities;
 
-namespace Application.UseCases;
+namespace Application.Handlers;
 
 public class CreateProductHandler
 {
