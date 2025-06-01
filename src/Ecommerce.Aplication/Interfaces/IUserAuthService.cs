@@ -1,9 +1,9 @@
-using Domain.Entities;
+using Application.DTOs;
 
 namespace Application.Interfaces;
 
 public interface IUserAuthService
 {
-    Task<User> RegisterAsync(User user);
-    Task<User?> LoginAsync(string username, string password);
+    Task<UserAuthResponseDto> RegisterAsync(UserRegisterDto registerDto);
+    Task<UserAuthResponseDto> LoginAsync(UserLoginDto loginDto);
 }
