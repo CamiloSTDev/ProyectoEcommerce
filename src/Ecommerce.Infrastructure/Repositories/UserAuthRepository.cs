@@ -1,5 +1,5 @@
 using Domain.Entities;
-using Domain.Interfaces;
+using Application.Interfaces;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,19 +14,24 @@ public class UserAuthRepository : IUserAuthRepository
         _context = context;
     }
 
-    public Task<User?> GetUserByEmailAsync(string email, string password)
+    public async Task<User?> GetUserByEmailAsync(string email, string password)
     {
 
+        var usr = await _context.Users.FirstOrDefaultAsync(x => x.Email == email.ToLowerInvariant() && x.Password == password);
+
+        return usr;
     }
 
-    public Task<bool> IsEmailTakenAsync(string email)
+    public async Task<bool> IsEmailTakenAsync(string email)
     {
-
+        return await _context.Users.AnyAsync(x => x.Email == email.ToLowerInvariant());
     }
 
-    public Task<User> RegisterUserAsync(User user)
+    public async Task<User> RegisterUserAsync(User user)
     {
-
+        _context.Users.Add(user);
+        await _context.SaveChangesAsync();
+        return user;
     }
 
 
