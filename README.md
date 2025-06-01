@@ -73,7 +73,7 @@ ProyectoEcommerce/
 
 ## 📌 Estado actual del proyecto
 
-🚧 **En desarrollo** — estructura inicial creada, módulo de autenticación en curso.
+🚧 **En desarrollo** — Módulo de autenticación completado, modificacion del módulo Productos en curso.
 
 ## 👤 Autores
 
@@ -83,4 +83,4 @@ ProyectoEcommerce/
 **KevinSRDev**
 [GitHub](https://github.com/KevinSRDev)
 
-Desarrolladores .NET | Entusiastas de la arquitectura limpia  
+Desarrolladores .NET | Entusiastas de la Clean Architecture y el Desarrollo de Software
