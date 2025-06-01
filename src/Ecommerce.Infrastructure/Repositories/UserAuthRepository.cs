@@ -14,10 +14,10 @@ public class UserAuthRepository : IUserAuthRepository
         _context = context;
     }
 
-    public async Task<User?> GetUserByEmailAsync(string email, string password)
+    public async Task<User?> GetUserByEmailAsync(string email)
     {
 
-        var usr = await _context.Users.FirstOrDefaultAsync(x => x.Email == email.ToLowerInvariant() && x.Password == password);
+        var usr = await _context.Users.FirstOrDefaultAsync(x => x.Email == email.ToLowerInvariant());
 
         return usr;
     }

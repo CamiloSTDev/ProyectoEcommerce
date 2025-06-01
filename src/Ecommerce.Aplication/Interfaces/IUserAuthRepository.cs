@@ -4,7 +4,7 @@ namespace Application.Interfaces;
 
 public interface IUserAuthRepository
 {
-    Task<User?> GetUserByEmailAsync(string email, string password); //login
+    Task<User?> GetUserByEmailAsync(string email);
     Task<bool> IsEmailTakenAsync(string email);
     Task<User> RegisterUserAsync(User user);
 }

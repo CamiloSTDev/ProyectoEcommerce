@@ -52,7 +52,7 @@ public class UserAuthService : IUserAuthService
 
     public async Task<UserAuthResponseDto> LoginAsync(UserLoginDto loginDto)
     {
-        var user = await _userAuthRepository.GetUserByEmailAsync(loginDto.Email, loginDto.Password);
+        var user = await _userAuthRepository.GetUserByEmailAsync(loginDto.Email);
 
         if (user == null || !user.IsActive)
         {
