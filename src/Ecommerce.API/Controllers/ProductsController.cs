@@ -1,11 +1,13 @@
 using Application.DTOs;
 using Application.Handlers;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Api.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+[Authorize]
 public class ProductsController : ControllerBase
 {
     private readonly GetAllProductsHandler _getHandler;
@@ -24,6 +26,7 @@ public class ProductsController : ControllerBase
         return Ok(products);
     }
 
+    [Authorize(Roles = "Vendedor")]
     [HttpPost]
     public async Task<IActionResult> Create(ProductDto dto)
     {
