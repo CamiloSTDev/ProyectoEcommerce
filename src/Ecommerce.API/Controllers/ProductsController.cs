@@ -28,11 +28,11 @@ public class ProductsController : ControllerBase
         return Ok(products);
     }
 
-    //[Authorize(Roles = "Vendedor")]
+    [Authorize(Roles = "Vendedor")]
     [HttpPost("addproduct")]
     public async Task<IActionResult> Create([FromBody] CreateProductCommand command)
     {
         var product =  await _mediator.Send(command);
-        return CreatedAtAction(nameof(GetAll), new { name = product.Name }, product);
+        return CreatedAtAction(nameof(GetAll), new { id = product.Id }, product);
     }
 }

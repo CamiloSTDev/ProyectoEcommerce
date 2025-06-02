@@ -30,6 +30,7 @@ public class CreateProductHandler : IRequestHandler<CreateProductCommand, Produc
         }
         var product = new Product
         {
+            Id = Guid.NewGuid(),
             Name = request.Name,
             Desc = request.Description,
             Price = request.Price,
@@ -37,7 +38,14 @@ public class CreateProductHandler : IRequestHandler<CreateProductCommand, Produc
 
         await _repository.CreateAsync(product);
 
-        return new ProductDto {Name = product.Name, Desc = product.Desc, Price = product.Price };
+        var dto = new ProductDto
+        {   
+            Id = product.Id,
+            Name = product.Name,
+            Desc = product.Desc,
+            Price = product.Price
+        };
+        return dto ;
     }
 
 }
