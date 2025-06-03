@@ -10,6 +10,7 @@ public class AppDbContext : DbContext
 
     public DbSet<Product> Products => Set<Product>();
     public DbSet<User> Users { get; set; }
+    public DbSet<Inventory> Inventories { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -25,6 +26,15 @@ public class AppDbContext : DbContext
             entity.Property(e => e.CreatedAt).IsRequired();
             entity.Property(e => e.IsActive).IsRequired();
         });
+
+        modelBuilder.Entity<Inventory>()
+            .HasKey(i => i.Id);
+
+        modelBuilder.Entity<Inventory>()
+            .HasOne(i => i.Product)
+            .WithOne(p => p.Inventory)
+            .HasForeignKey<Inventory>(i => i.ProductId)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 
 }
