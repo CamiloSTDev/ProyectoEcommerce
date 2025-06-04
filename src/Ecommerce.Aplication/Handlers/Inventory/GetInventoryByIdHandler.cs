@@ -1,22 +1,22 @@
 using MediatR;
 using FluentValidation;
 using Application.DTOs;
-using Application.Commands;
 using Application.Interfaces;
+using Application.Queries;
 
 namespace Application.Handlers;
 
-public class GetInventoryByIdHandler : IRequestHandler<GetByIdInventoryCommand, InventoryDto>
+public class GetInventoryByIdHandler : IRequestHandler<GetByIdInventoryQuery, InventoryDto>
 {
     private readonly IInventoryRepository _repository;
-    private readonly IValidator<GetByIdInventoryCommand> _validator;
+    private readonly IValidator<GetByIdInventoryQuery> _validator;
 
-    public GetInventoryByIdHandler(IInventoryRepository repository, IValidator<GetByIdInventoryCommand> validator)
+    public GetInventoryByIdHandler(IInventoryRepository repository, IValidator<GetByIdInventoryQuery> validator)
     {
         _repository = repository;
         _validator = validator;
     }
-    public async Task<InventoryDto> Handle(GetByIdInventoryCommand request, CancellationToken cancellationToken)
+    public async Task<InventoryDto> Handle(GetByIdInventoryQuery request, CancellationToken cancellationToken)
     {
         var validationResult = await _validator.ValidateAsync(request);
 
