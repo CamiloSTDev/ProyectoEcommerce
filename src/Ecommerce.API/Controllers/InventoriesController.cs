@@ -1,4 +1,4 @@
-using Application.DTOs;
+using Application.Queries;
 using Application.Handlers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
@@ -42,7 +42,7 @@ public class InventoriesController : ControllerBase
     }
 
     [HttpGet("getbyid")]
-    public async Task<IActionResult> GetById([FromBody] GetByIdInventoryCommand id)
+    public async Task<IActionResult> GetById([FromBody] GetByIdInventoryQuery id)
     {
         try
         {
