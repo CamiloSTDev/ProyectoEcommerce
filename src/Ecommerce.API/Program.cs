@@ -53,20 +53,26 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // MediatR
 builder.Services.AddMediatR(typeof(RegisterUserHandler).Assembly);
 builder.Services.AddMediatR(typeof(LoginUserHandler).Assembly);
+builder.Services.AddMediatR(typeof(CreateProductHandler).Assembly);
+builder.Services.AddMediatR(typeof(GetInventoryByIdHandler).Assembly);
+builder.Services.AddMediatR(typeof(UpdateInventoryHandler).Assembly);
 
 // FluentValidation
 builder.Services.AddValidatorsFromAssembly(typeof(RegisterCommandValidator).Assembly);
+builder.Services.AddValidatorsFromAssembly(typeof(UpdateInventoryValidators).Assembly);
+builder.Services.AddValidatorsFromAssembly(typeof(GetByIdInventoryValidator).Assembly);
 
 //Repositorios
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IUserAuthRepository, UserAuthRepository>();
+builder.Services.AddScoped<IInventoryRepository, InventoryRepository>();
 
 //servicios de dominio
 builder.Services.AddScoped<IUserAuthService, UserAuthService>();
 builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IEncryptionService, EncryptionService>();
 builder.Services.AddScoped<GetAllProductsHandler>();
-builder.Services.AddScoped<CreateProductHandler>();
+builder.Services.AddScoped<GetAllInventoryHandler>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
