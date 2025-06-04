@@ -10,11 +10,13 @@ namespace Application.Handlers;
 public class CreateProductHandler : IRequestHandler<CreateProductCommand, ProductDto>
 {
     private readonly IProductRepository _repository;
+    private readonly IInventoryRepository _inventoryRepository;
     private readonly IValidator<CreateProductCommand> _validator;
 
-    public CreateProductHandler(IProductRepository repository, IValidator<CreateProductCommand> validator)
+    public CreateProductHandler(IProductRepository repository,IInventoryRepository inventoryRepository, IValidator<CreateProductCommand> validator)
     {
         _repository = repository;
+        _inventoryRepository = inventoryRepository;
         _validator = validator;
     }
 
@@ -36,14 +38,25 @@ public class CreateProductHandler : IRequestHandler<CreateProductCommand, Produc
             Price = request.Price,
         };
 
+        var inventory = new Inventory
+        {
+            Name = request.CategoryName,
+            Stock = request.Stock,
+            UpdatedAt = DateTime.UtcNow,
+            ProductId = product.Id,
+        };
+
         await _repository.CreateAsync(product);
+        await _inventoryRepository.CreateInventoryAsync(inventory);
 
         var dto = new ProductDto
-        {   
+        {
             Id = product.Id,
             Name = product.Name,
             Desc = product.Desc,
-            Price = product.Price
+            Price = product.Price,
+            Stock = inventory.Stock,
+            CategoryName = inventory.Name,
         };
         return dto ;
     }
