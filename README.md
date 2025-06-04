@@ -9,7 +9,6 @@ Este es un proyecto personal de ecommerce desarrollado con .NET y la arquitectur
 - **ASP.NET Core Web API**
 - **Entity Framework Core**
 - **SQL Server**
-- **AutoMapper**
 - **FluentValidation**
 - **MediatR**
 - **Visual Studio Code**
@@ -73,7 +72,7 @@ ProyectoEcommerce/
 
 ## 📌 Estado actual del proyecto
 
-🚧 **En desarrollo** — Módulo de autenticación completado, modificacion del módulo Productos en curso.
+🚧 **En desarrollo** — Módulo de Productos e inventario completado, creacion del módulo de pedidos en curso.
 
 ## 👤 Autores
 
