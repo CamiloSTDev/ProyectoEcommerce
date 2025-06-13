@@ -9,7 +9,6 @@ Este es un proyecto personal de ecommerce desarrollado con .NET y la arquitectur
 - **ASP.NET Core Web API**
 - **Entity Framework Core**
 - **SQL Server**
-- **AutoMapper**
 - **FluentValidation**
 - **MediatR**
 - **Visual Studio Code**
@@ -73,7 +72,7 @@ ProyectoEcommerce/
 
 ## 📌 Estado actual del proyecto
 
-🚧 **En desarrollo** — estructura inicial creada, módulo de autenticación en curso.
+🚧 **En desarrollo** — Módulo de Productos e inventario completado, creacion del módulo de pedidos en curso.
 
 ## 👤 Autores
 
@@ -83,4 +82,4 @@ ProyectoEcommerce/
 **KevinSRDev**
 [GitHub](https://github.com/KevinSRDev)
 
-Desarrolladores .NET | Entusiastas de la arquitectura limpia  
+Desarrolladores .NET | Entusiastas de la Clean Architecture y el Desarrollo de Software
