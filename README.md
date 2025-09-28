@@ -77,7 +77,7 @@ ProyectoEcommerce/
 ## 👤 Autores
 
 **CamiloSTDev**
-[GitHub](https://github.com/CamiloSTDev) · [LinkedIn](www.linkedin.com/in/camilo-totena-964b93311)
+[GitHub](https://github.com/CamiloSTDev) · [LinkedIn](https://www.linkedin.com/in/camilo-totena-964b93311)
 
 **KevinSRDev**
 [GitHub](https://github.com/KevinSRDev)
